@@ -1,8 +1,10 @@
-Real-Time Customer CDP & Churn Risk Dashboard
+ Real-Time Customer CDP & Churn Risk Dashboard
 
 An end-to-end Machine Learning and Business Intelligence pipeline that predicts 12-month Customer Lifetime Value (LTV), identifies churn risks using XGBoost, and streams dynamic predictions into a live Power BI dashboard via MySQL.
 
-Tech Stack & Tools
+---
+
+ Tech Stack & Tools
 * **Language:** Python 3.x
 * **Machine Learning & Data Processing:** `xgboost`, `scikit-learn`, `pandas`, `numpy`
 * **Database:** MySQL
@@ -10,18 +12,52 @@ Tech Stack & Tools
 * **Visualization:** Power BI Desktop
 * **Version Control:** Git & GitHub
 
-Key Features
+---
+
+ Key Features
 * **Dynamic Behavior Engine:** Simulates real-time customer transactional variance across 500 active accounts.
 * **Predictive LTV Modeling:** Uses feature metrics (Order Recency, Total Frequency, Average Order Value, Customer Tenure) to calculate predicted 12-month value.
 * **Automated Risk Segmentation:** Categorizes customers into `VIP`, `Loyal`, `At-Risk`, and `Lost` based on custom ML business rules.
 * **Prescriptive Campaign Mapping:** Recommends targeted marketing actions (*Win-Back Offers*, *VIP Exclusive Discounts*, *Re-Engagement Pushes*) per segment.
 * **Live Power BI Integration:** Overwrites database records dynamically to demonstrate live visual state shifts on refresh.
 
-Architecture Pipeline
- Raw Customer Data 
+---
+
+## 📐 Architecture Pipeline
+
+```text
+[ Raw Customer Data ] 
        │
        ▼
- Python Engine  ──> XGBoost LTV Prediction  ──>  Segmentation Rules 
-                                                             
-                                                             
-  MySQL Database ──> Real-Time Refresh ──> Power BI Dashboard
+[ Python Engine ] ──> [ XGBoost LTV Prediction ] ──> [ Segmentation Rules ]
+                                                              │
+                                                              ▼
+[ Power BI Dashboard ] <── [ Real-Time Refresh ] <── [ MySQL Database ]
+```
+
+---
+
+ How to Run Locally
+
+### 1. Prerequisites
+Ensure you have MySQL installed and running locally, along with Python 3.10+.
+
+### 2. Install Dependencies
+```bash
+pip install pandas numpy xgboost scikit-learn sqlalchemy pymysql
+```
+
+### 3. Database Setup
+Create a MySQL database named `enterprise_cdp`:
+```sql
+CREATE DATABASE enterprise_cdp;
+```
+
+### 4. Run the Pipeline
+Update your MySQL password in `app.py` and execute:
+```bash
+python app.py
+```
+
+### 5. Open Dashboard
+Open `Realtime_Customer_CDP_Dashboard.pbix` in Power BI Desktop and click **Refresh** to view updated live metrics!
