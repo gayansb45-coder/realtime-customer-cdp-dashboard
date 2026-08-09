@@ -22,6 +22,6 @@ Architecture Pipeline
        │
        ▼
  Python Engine  ──> XGBoost LTV Prediction  ──>  Segmentation Rules 
-                                                              │
-                                                              ▼
- Power BI Dashboard <──  Real-Time Refresh <──  MySQL Database 
+                                                             
+                                                             
+  MySQL Database ──> Real-Time Refresh ──> Power BI Dashboard
