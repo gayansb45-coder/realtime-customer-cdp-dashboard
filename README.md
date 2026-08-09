@@ -61,3 +61,5 @@ python app.py
 
 ### 5. Open Dashboard
 Open `Realtime_Customer_CDP_Dashboard.pbix` in Power BI Desktop and click **Refresh** to view updated live metrics!
+
+![Dashboard Preview](dashboard.png)
